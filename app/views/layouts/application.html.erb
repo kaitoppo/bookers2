@@ -27,10 +27,10 @@
         </li>
       <% else %>
         <li>
-          <%= link_to "Home", user_path(current_user.id) %>
+          <%= link_to "Home", root_path %>
         </li>
         <li>
-          <%= link_to "About", abou_path %>
+          <%= link_to "About", about_path %>
         </li>
         <li>
           <%= link_to "Sign Up", new_user_registration_path %>
@@ -41,5 +41,16 @@
         <% end %>
     </heder>
     <%= yield %>
+
+    <footer>
+      <div class='container mt-5' >
+        <div class='row' >
+          <div class='mx-auto' >
+            <p>CopyRight Infratop.inc</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
   </body>
 </html>
