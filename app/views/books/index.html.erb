@@ -1,4 +1,12 @@
 <h1>Books</h1>
+<% if @book_new.errors.any? %>
+  <%= @book_new.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @book_new.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
 <table>
     <thead>
         <th></th>
@@ -25,5 +33,5 @@
 </table>
 
 <div>
-<%= render 'books/list', book: @book_new %>
+<%= render 'books/list', book: @book_new, user: @user%>
 </div>
