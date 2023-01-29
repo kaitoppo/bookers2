@@ -31,3 +31,11 @@ header {
   background-color: #f55e55;
   background-image: none;
 }
+
+.nav-item {
+ display: inline-block
+}
+
+.nav-link {
+  display: inline-block
+}
