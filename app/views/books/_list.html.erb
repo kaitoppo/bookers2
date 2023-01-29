@@ -1,31 +1,57 @@
- <div>
-  <% if current_page?(action: 'index') %>
-  <h1>User info</h1>
-  <%= image_tag current_user.get_profile_image(100,100) %>
-  <h4>name</h4>
-  <%= current_user.name %>
-  <h4>introduction</h4>
-  <%= current_user.introduction %>
-  <div>
-  <%= link_to "profile edit", edit_user_path(current_user) %>
- </div>
+<% if current_page?(action: 'index') %>
+  <h2>User info</h2>
+   <%= image_tag current_user.get_profile_image(100,100) %>
+    <table class="table">
+     <tbody>
+     <tr></tr>
+     <tr>
+      <td>name</td>
+      <td><%= current_user.name %></td>
+     </tr>
+     <tr></tr>
+     <tr>
+      <td>introduction</td>
+     <td><%= current_user.introduction %></td>
+    </tbody>
+   </table>
 
-  <% else %>
-  <h1>User info</h1>
-  <%= image_tag user.get_profile_image(100,100) %>
-  <h4>name</h4>
-  <%= user.name %>
-  <h4>introduction</h4>
-  <%= user.introduction %>
-  <div>
-  <%= link_to "profile edit", edit_user_path(user) %>
-  </div>
-  <% end %>
-</div>
+   <div class="row">
+    <div class="btn btn-outline-secondary btn-block">
+     <%= link_to  edit_user_path(current_user) do %>
+      <i class="fas fa-user-cog"></i>
+     <% end %>
+    </div>
+   </div>
+
+   <% else %>
+    <h2>User info</h2>
+     <%= image_tag user.get_profile_image(100,100) %>
+      <table class="table">
+       <tbody>
+        <tr></tr>
+        <tr>
+         <h4>name</h4>
+         <%= user.name %>
+        </tr>
+        <tr></tr>
+        <tr>
+        <h4>introduction</h4>
+        <%= user.introduction %>
+      </tbody>
+     </table>
+
+  <div class="row">
+   <div class="btn btn-outline-secondary btn-block">
+    <%= link_to  edit_user_path(user) do %>
+     <i class="fas fa-user-cog"></i>
+    <% end %>
+   </div>
+ </div>
+<% end %>
 
 <div>
-  <h1>New book</h1>
-  <%= form_with model: book do |f| %>
+ <h1>New book</h1>
+   <%= form_with model: book do |f| %>
     <h4>Title</h4>
       <%= f.text_field :title %>
     <h4>Opinion</h4>
